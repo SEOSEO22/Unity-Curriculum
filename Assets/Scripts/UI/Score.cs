@@ -6,8 +6,8 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
-    Player player;
-    int score;
+    private Player player;
+    private int score;
 
     private void Start()
     {
@@ -20,6 +20,11 @@ public class Score : MonoBehaviour
         {
             SetScore();
         }
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 
     private void SetScore()
