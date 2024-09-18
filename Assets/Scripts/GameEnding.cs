@@ -19,7 +19,7 @@ public class GameEnding : MonoBehaviour
         score = scoreObject.GetComponent<Score>().GetScore();
         scoreText.text = "최종 점수 : " + score.ToString("D6");
 
-        if (score >= 4000) rank = 'S';
+        if (score >= 40000) rank = 'S';
         else if (score >= 25000) rank = 'A';
         else if (score >= 13000) rank = 'B';
         else if (score >= 7000) rank = 'C';
