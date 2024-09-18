@@ -6,6 +6,7 @@ public class Settings : MonoBehaviour
 {
     private void OnEnable()
     {
+        SoundManager.Instance.ParentObjectActivated();
         Time.timeScale = 0f;
     }
 

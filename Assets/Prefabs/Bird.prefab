@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3782004164980241965}
   - component: {fileID: 2874743081787482545}
   - component: {fileID: -7203459362608635237}
+  - component: {fileID: 2665724497552519491}
   - component: {fileID: 1343905877699854765}
   m_Layer: 7
   m_Name: Bird
@@ -122,6 +123,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {x: 12, y: 1}
   moveSpeed: 5
+--- !u!114 &2665724497552519491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447916090681817347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e93de1eb49e08041b874fb9cca35a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  egg: {fileID: 6257182582593502478, guid: 150149d261322c246bb8e6f08908ce70, type: 3}
+  player: {fileID: 0}
 --- !u!70 &1343905877699854765
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

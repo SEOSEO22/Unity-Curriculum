@@ -21,21 +21,27 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (score.GetScore() < 3000)
+        if (gameObject.layer == LayerMask.NameToLayer("Item")) return;
+
+        if (score.GetScore() < 1500)
         {
-            minTime = 3f; maxTime = 6f;
+            minTime = 3f; maxTime = 5f;
         }
-        else if (score.GetScore() < 6000)
+        else if (score.GetScore() < 3000)
         {
-            minTime = 2f; maxTime = 4f;
+            minTime = 3f; maxTime = 4f;
         }
-        else if (score.GetScore() < 12000)
+        else if (score.GetScore() < 9000)
         {
-            minTime = 1f; maxTime = 4f;
+            minTime = 2.5f; maxTime = 3f;
         }
         else if (score.GetScore() < 18000)
         {
-            minTime = .5f; maxTime = 3f;
+            minTime = 1f; maxTime = 2.5f;
+        }
+        else
+        {
+            minTime = .5f; maxTime = 1.5f;
         }
     }
 
@@ -43,13 +49,13 @@ public class Spawner : MonoBehaviour
     {
         if (!player.isStartRunning)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(6f);
             StartCoroutine("SpawnObstacle");
         }
 
         while (player.isStartRunning)
         {
-            spawnManager.Spawn((int)Random.Range(0f, 3f));
+            spawnManager.Spawn((int)Random.Range(0f, spawnManager.prefabs.Length));
             yield return new WaitForSeconds(Random.Range(minTime, maxTime));
         }
     }

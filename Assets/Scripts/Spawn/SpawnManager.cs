@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] prefabs;
+    public GameObject[] prefabs;
     List<GameObject>[] pools;
 
     // 오브젝트 풀 초기화

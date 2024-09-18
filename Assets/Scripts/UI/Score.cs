@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (player.isStartRunning)
         {

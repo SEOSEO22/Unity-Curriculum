@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject heart;
     private List<Image> hearts;
     private GameObject settingPanel;
+    public bool isPlayerDead;
 
     private void Awake()
     {
@@ -27,6 +28,11 @@ public class GameManager : MonoBehaviour
         }
         #endregion
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
             GetLifeNum();
@@ -40,9 +46,9 @@ public class GameManager : MonoBehaviour
 
     private void SetSettingPanel()
     {
-        settingPanel = GameObject.Find("UICanvas").transform.GetChild(0).gameObject; ;
+        settingPanel = GameObject.Find("Setting Canvas").transform.GetChild(0).gameObject;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPlayerDead)
         {
             settingPanel.SetActive(!settingPanel.activeSelf);
         }
@@ -56,7 +62,9 @@ public class GameManager : MonoBehaviour
 
     public void GetLifePotion()
     {
-        hearts.Add(Instantiate(heart, this.transform).GetComponent<Image>());
+        if (hearts.Count >= 5) return;
+
+        hearts.Add(Instantiate(heart, GameObject.Find("Hearts").transform).GetComponent<Image>());
         GetLifeNum();
     }
 

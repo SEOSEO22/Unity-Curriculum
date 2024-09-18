@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BackgroundMoving : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 3f;
+    [SerializeField] float moveSpeed = 3.5f;
     GameObject player;
-
-    private bool canMove;
 
     void Start()
     {
@@ -27,6 +25,8 @@ public class BackgroundMoving : MonoBehaviour
     private void StartMoving()
     {
         if (player.GetComponent<Player>().isStartRunning)
+        {
             transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
+        }
     }
 }
